@@ -1,0 +1,9 @@
+{
+  "user_id": "demo-user",
+  "message": "I want to remodel my kitchen and need a plan for budget, permits, contractor questions, and timeline.",
+  "location": "Seattle, WA",
+  "constraints": {
+    "budget": "medium",
+    "timeline": "next 6 months"
+  }
+}

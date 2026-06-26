@@ -1,0 +1,14 @@
+{
+  "id": "family-care-coordinator",
+  "name": "Family Care Coordinator",
+  "description": "Helps organize care tasks, appointments, documents, and family communication.",
+  "domains": ["family", "care", "planning"],
+  "keywords": ["appointment", "caregiver", "family", "documents", "schedule"],
+  "disclaimer": "Planning support only. It does not provide medical, legal, or emergency advice.",
+  "intake_questions": [
+    "Who is involved?",
+    "What needs to be coordinated?",
+    "Are there urgent safety or medical concerns?"
+  ],
+  "handoff_triggers": ["medical emergency", "immediate danger", "legal dispute"]
+}

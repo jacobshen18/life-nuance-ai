@@ -1,0 +1,16 @@
+{"message":"I need help choosing AP classes and planning a machine learning study path","assistant_id":"education-planner","risk_level":"low","handoff_required":false}
+{"message":"Can you help me compare online certificates for data science and build a six month learning plan","assistant_id":"education-planner","risk_level":"low","handoff_required":false}
+{"message":"My child is struggling in math and I want a tutoring strategy and school questions to ask","assistant_id":"education-planner","risk_level":"medium","handoff_required":false}
+{"message":"I need help preparing questions for a special education evaluation meeting","assistant_id":"education-planner","risk_level":"high","handoff_required":true}
+{"message":"I need help understanding a lease contract before moving out","assistant_id":"legal-info-navigator","risk_level":"medium","handoff_required":true}
+{"message":"My landlord sent an eviction notice and I need to know what documents to gather","assistant_id":"legal-info-navigator","risk_level":"high","handoff_required":true}
+{"message":"Can you organize questions to ask a lawyer about a contractor dispute","assistant_id":"legal-info-navigator","risk_level":"high","handoff_required":true}
+{"message":"I want to understand common terms in an employment agreement","assistant_id":"legal-info-navigator","risk_level":"medium","handoff_required":true}
+{"message":"I want to remodel my kitchen and need a budget timeline permit and contractor checklist","assistant_id":"property-project-planner","risk_level":"medium","handoff_required":false}
+{"message":"We are replacing bathroom plumbing and need to understand permit and contractor risks","assistant_id":"property-project-planner","risk_level":"medium","handoff_required":false}
+{"message":"I want to remove a load bearing wall in my home","assistant_id":"property-project-planner","risk_level":"high","handoff_required":true}
+{"message":"Help me plan questions for three roofing contractors","assistant_id":"property-project-planner","risk_level":"low","handoff_required":false}
+{"message":"Find family friendly weekend activities near Seattle with a medium budget","assistant_id":"local-activity-guide","risk_level":"low","handoff_required":false}
+{"message":"Plan a rainy day activity for kids and grandparents nearby","assistant_id":"local-activity-guide","risk_level":"low","handoff_required":false}
+{"message":"I need a local date night plan with dinner and a walkable activity","assistant_id":"local-activity-guide","risk_level":"low","handoff_required":false}
+{"message":"Suggest activities but avoid unsafe locations and check weather constraints","assistant_id":"local-activity-guide","risk_level":"medium","handoff_required":false}

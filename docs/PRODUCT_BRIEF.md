@@ -18,6 +18,7 @@ Busy individuals and families who want practical planning support without becomi
 2. Route a user request to the most relevant assistant.
 3. Return a domain-aware plan, caveats, and suggested follow-up questions.
 4. Keep high-risk domains clearly bounded.
+5. Train and evaluate a lightweight router for assistant selection, risk level, and handoff needs.
 
 ## Differentiation
 
@@ -32,3 +33,9 @@ LifeNuance is not a single persona chatbot. It is a registry of assistants with 
 - Family care coordination
 - Finance planning guidance
 - Health appointment preparation
+
+## Training Loop
+
+The first model is an intent and risk router trained from labeled examples. Early labels should come
+from synthetic examples, user feedback, and reviewed routing corrections. The highest-priority
+metric is not only route accuracy, but also recall on cases that require professional handoff.

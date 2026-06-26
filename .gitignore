@@ -7,3 +7,6 @@ __pycache__/
 dist/
 build/
 .DS_Store
+artifacts/*
+!artifacts/.gitkeep
+!artifacts/router_model.json

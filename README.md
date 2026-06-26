@@ -29,6 +29,14 @@ pip install -e ".[dev]"
 uvicorn life_nuance_ai.app:create_app --factory --reload
 ```
 
+Train the first lightweight router:
+
+```bash
+python scripts/train_router.py \
+  --train-data data/router_training.jsonl \
+  --output artifacts/router_model.json
+```
+
 Try routing a request:
 
 ```bash
@@ -51,6 +59,35 @@ curl -X POST http://localhost:8000/v1/assistants \
 - `GET /v1/assistants`
 - `POST /v1/assistants`
 - `POST /v1/route`
+
+## Training Approach
+
+The first trainable component is the assistant router. It predicts:
+
+- `assistant_id`
+- `risk_level`
+- `handoff_required`
+
+The current implementation uses a dependency-free Naive Bayes text classifier trained from JSONL.
+It is deliberately small so the project can learn from real usage before investing in larger
+fine-tuning.
+
+Example training row:
+
+```json
+{"message":"I need help with a kitchen remodel permit","assistant_id":"property-project-planner","risk_level":"medium","handoff_required":false}
+```
+
+If `artifacts/router_model.json` exists, the API uses the trained router first and falls back to
+keyword routing when needed.
+
+```text
+user request
+  -> trained intent/risk router
+  -> assistant registry
+  -> domain disclaimers and handoff triggers
+  -> structured next steps
+```
 
 ## Product Direction
 

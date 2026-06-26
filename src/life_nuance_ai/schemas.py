@@ -25,6 +25,9 @@ class RouteResponse(BaseModel):
     assistant: AssistantDefinition
     confidence: float = Field(ge=0.0, le=1.0)
     matched_keywords: list[str]
+    routing_method: str
+    risk_level: str
+    handoff_required: bool
     disclaimer: str
     suggested_next_steps: list[str]
     intake_questions: list[str]

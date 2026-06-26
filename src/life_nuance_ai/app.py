@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
 
+from life_nuance_ai.model_store import load_optional_router
 from life_nuance_ai.registry import AssistantRegistry
 from life_nuance_ai.router import route_request
 from life_nuance_ai.schemas import (
@@ -20,6 +21,7 @@ def create_app() -> FastAPI:
         description="Assistant registry and routing platform for nuanced everyday life decisions.",
     )
     registry = AssistantRegistry(seed_assistants())
+    trained_router = load_optional_router()
 
     @app.get("/health", response_model=HealthResponse)
     def health() -> HealthResponse:
@@ -36,7 +38,7 @@ def create_app() -> FastAPI:
     @app.post("/v1/route", response_model=RouteResponse)
     def route(request: RouteRequest) -> RouteResponse:
         try:
-            return route_request(request, registry)
+            return route_request(request, registry, trained_router=trained_router)
         except ValueError as error:
             raise HTTPException(status_code=400, detail=str(error)) from error
 

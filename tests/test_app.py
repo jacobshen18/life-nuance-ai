@@ -25,6 +25,7 @@ def test_route_endpoint() -> None:
 
     assert response.status_code == 200
     assert response.json()["assistant"]["id"] == "education-planner"
+    assert response.json()["routing_method"] in {"keyword", "trained"}
 
 
 def test_register_assistant_endpoint() -> None:

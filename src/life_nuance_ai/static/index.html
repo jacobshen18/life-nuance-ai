@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LifeNuance AI routes everyday decisions to grounded, domain-aware assistants.">
+  <title>LifeNuance AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="LifeNuance AI home">
+        <span class="brand-mark">LN</span>
+        <span>LifeNuance</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <button class="nav-item active" type="button" data-view="workspace">
+          <span aria-hidden="true">&#9638;</span> Workspace
+        </button>
+        <button class="nav-item" type="button" data-view="assistants">
+          <span aria-hidden="true">&#9671;</span> Assistants
+        </button>
+        <button class="nav-item" type="button" data-view="sources">
+          <span aria-hidden="true">&#9783;</span> Sources
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="status"><span></span> Demo environment</div>
+        <p>Grounded planning for real-life decisions.</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="mobile-menu" type="button" aria-label="Toggle navigation">&#9776;</button>
+        <div>
+          <p class="eyebrow">Decision workspace</p>
+          <h1>What are you working through?</h1>
+        </div>
+        <div class="profile" aria-label="Demo user">JS</div>
+      </header>
+
+      <section class="workspace" id="workspace">
+        <div class="prompt-panel">
+          <div class="prompt-row">
+            <textarea id="message" rows="3" aria-label="Describe your situation" placeholder="Describe a decision, deadline, or project..."></textarea>
+            <button id="route-button" class="route-button" type="button" aria-label="Route request">
+              <span>Route</span><span aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+          <div class="prompt-meta">
+            <label>Location <input id="location" value="San Diego, CA" aria-label="Location"></label>
+            <span>Private demo session</span>
+          </div>
+        </div>
+
+        <div class="examples" aria-label="Example requests">
+          <span>Try an example</span>
+          <div id="example-list" class="example-list"></div>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-copy">
+            <p class="eyebrow">One request, the right specialist</p>
+            <h2>A practical way through complicated life admin.</h2>
+            <p>LifeNuance identifies the domain, checks urgency, and builds a grounded workspace with source-backed facts and clear professional boundaries.</p>
+          </div>
+          <div class="route-preview" aria-label="Routing flow preview">
+            <div><span>01</span><strong>Understand</strong><small>Intent and constraints</small></div>
+            <div><span>02</span><strong>Route</strong><small>Specialist and risk</small></div>
+            <div><span>03</span><strong>Ground</strong><small>Trusted public sources</small></div>
+            <div><span>04</span><strong>Act</strong><small>Structured next steps</small></div>
+          </div>
+        </div>
+
+        <div id="result" class="result hidden" aria-live="polite">
+          <div class="result-head">
+            <div>
+              <p class="eyebrow">Matched specialist</p>
+              <div class="assistant-title"><span id="assistant-icon" class="assistant-icon">L</span><div><h2 id="assistant-name"></h2><p id="assistant-description"></p></div></div>
+            </div>
+            <div class="route-stats">
+              <div><span>Confidence</span><strong id="confidence"></strong></div>
+              <div><span>Risk check</span><strong id="risk"></strong></div>
+              <div><span>Routing</span><strong id="routing-method"></strong></div>
+            </div>
+          </div>
+
+          <div id="handoff" class="handoff hidden"><strong>Professional review recommended</strong><span>This request may involve a deadline or high-impact decision.</span></div>
+
+          <div class="result-grid">
+            <section class="brief">
+              <p class="section-label">Decision brief</p>
+              <h3 id="case-summary"></h3>
+              <div class="divider"></div>
+              <p class="section-label">What the sources establish</p>
+              <ul id="facts"></ul>
+              <p class="section-label next-label">Suggested next steps</p>
+              <ol id="actions"></ol>
+            </section>
+
+            <aside class="evidence">
+              <p class="section-label">Source record</p>
+              <div id="sources"></div>
+              <div class="boundary"><span>Boundary</span><p id="disclaimer"></p></div>
+              <div class="intake"><span>Before continuing</span><ul id="questions"></ul></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog hidden" id="assistants">
+        <div class="section-heading"><div><p class="eyebrow">Registered specialists</p><h2>Assistant catalog</h2></div><span id="assistant-count"></span></div>
+        <div id="assistant-grid" class="assistant-grid"></div>
+      </section>
+
+      <section class="catalog hidden" id="sources-view">
+        <div class="section-heading"><div><p class="eyebrow">Grounding layer</p><h2>Trusted source library</h2></div></div>
+        <div id="source-library" class="source-library"></div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

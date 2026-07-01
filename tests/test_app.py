@@ -12,6 +12,19 @@ def test_health_endpoint() -> None:
     assert response.json()["assistant_count"] >= 4
 
 
+def test_demo_page_and_cases() -> None:
+    client = TestClient(create_app())
+
+    page = client.get("/")
+    cases = client.get("/v1/demo/cases")
+
+    assert page.status_code == 200
+    assert "LifeNuance" in page.text
+    assert cases.status_code == 200
+    assert len(cases.json()) == 4
+    assert cases.json()[0]["sources"][0]["publisher"] == "California Courts Self-Help Guide"
+
+
 def test_route_endpoint() -> None:
     client = TestClient(create_app())
 

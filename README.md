@@ -1,6 +1,8 @@
 # LifeNuance AI
 
-LifeNuance AI is a platform for registering and routing specialized AI assistants for everyday life decisions.
+LifeNuance AI is a platform for registering and routing specialized AI assistants for everyday life decisions. The repository now includes a working product demo with a specialist catalog, trained routing, risk checks, and source-grounded decision briefs.
+
+![LifeNuance AI demo](docs/demo-preview.png)
 
 The project starts with a simple assistant registry and routing API. Users describe what they need, and the platform recommends an assistant module with domain boundaries, required disclaimers, and a structured next-step plan.
 
@@ -29,6 +31,8 @@ pip install -e ".[dev]"
 uvicorn life_nuance_ai.app:create_app --factory --reload
 ```
 
+Open [http://localhost:8000](http://localhost:8000) to use the demo. Start with one of four realistic scenarios covering a California eviction notice, college comparison, a San Diego kitchen remodel, and local family activities. Each scenario links to its authoritative public sources and records when those sources were checked.
+
 Train the first lightweight router:
 
 ```bash
@@ -56,6 +60,8 @@ curl -X POST http://localhost:8000/v1/assistants \
 ## API
 
 - `GET /health`
+- `GET /` (interactive demo)
+- `GET /v1/demo/cases`
 - `GET /v1/assistants`
 - `POST /v1/assistants`
 - `POST /v1/route`
